@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Details</title>
+</head>
+<body style="background-color:aqua;">
+    <br><br><br>
+    <center><h1><i style="color:rgb(248, 81, 20);">Weather Details</i></h1>
+    <form method="POST" action="/">
+        <label for="city">Enter The City:</label>
+        <input type="text" name="city" id="city" required>
+        <br><br><br>
+        <input type="submit" value="Get Weather">
+    </form></center>
+    <div style="color: crimson;">
+    <center><h1>{% if error %}
+    <p>{{ error }}</p>
+    {% endif %}</h1></center></div>
+        <br>
+    <div >
+    <center>{% if weather %}
+    <h1 style="color: crimson;">Weather Details of {{ weather['name'] }}, {{ weather['sys']['country'] }} :</h1>
+    <!-- <p>Coordinates: {{ weather['coord'] }}</p> -->
+    <p>Longitude: {{ weather['coord']['lon'] }}</p>
+    <p>Latitude: {{ weather['coord']['lat'] }}</p>
+    <p>Temperature: {{ weather['main']['temp'] }} C</p>
+    <p>Max Temperature: {{ weather['main']['temp_max'] }} C</p>
+    <p>Humidity: {{ weather['main']['humidity'] }}%</p>
+    <p>Pressure: {{ weather['main']['pressure'] }} hPa</p>
+    {% endif %}</center></div>
+</body>
+</html>
